@@ -12,7 +12,9 @@ const path = require("path");
 //cors
 const allowedOrigins = [
   "https://bb-managment-client-799xl20b1-pradhumn2s-projects.vercel.app/",
+  "https://bb-managment-client-799xl20b1-pradhumn2s-projects.vercel.app",
   "https://bb-managment-client.vercel.app/",
+  "https://bb-managment-client.vercel.app",
   // Add more allowed origins as needed
 ];
 
