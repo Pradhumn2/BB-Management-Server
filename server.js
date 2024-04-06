@@ -18,16 +18,16 @@ const allowedOrigins = [
   // Add more allowed origins as needed
 ];
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    console.log(origin);
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-};
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     console.log(origin);
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+// };
 
 //dot config
 dotenv.config();
@@ -45,6 +45,10 @@ app.use(function (req, res, next) {
     "Access-Control-Allow-Origin",
     "https://bb-managment-client.vercel.app"
   ); // Allow requests from any origin
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://bb-managment-client.vercel.app/"
+  );
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
