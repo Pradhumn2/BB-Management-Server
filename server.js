@@ -43,7 +43,7 @@ app.all("*", function (req, res, next) {
   res.header("Access-Control-Allow-Headers", "Content-Type");
   next();
 });
-app.use(cors(corsOptions));
+app.use(cors(corsOptions["origin"]));
 app.use(express.json());
 app.use(morgan("dev"));
 
