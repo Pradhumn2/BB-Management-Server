@@ -55,6 +55,12 @@ const app = express(); //All functionality of express gets stored in app
 //   );
 //   next();
 // });
+app.use(
+  cors({
+    origin: "https://bb-managment-client.vercel.app",
+    credentials: true,
+  })
+);
 app.use(function (req, res, next) {
   res.setHeader(
     "Access-Control-Allow-Origin",
