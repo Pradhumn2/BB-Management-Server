@@ -9,6 +9,21 @@ const inventoryRoutes = require("./routes/inventoryRoutes");
 const analyticsRoutes = require("./routes/analyticsRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const path = require("path");
+//cors
+const allowedOrigins = [
+  "https://bb-management-server.vercel.app/",
+  // Add more allowed origins as needed
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
 
 //dot config
 dotenv.config();
@@ -21,7 +36,7 @@ const app = express(); //All functionality of express gets stored in app
 
 //middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(morgan("dev"));
 
 //routes
