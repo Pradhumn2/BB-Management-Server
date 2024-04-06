@@ -45,7 +45,7 @@ const app = express(); //All functionality of express gets stored in app
 //   res.header("Access-Control-Allow-Headers", "Content-Type");
 //   next();
 // });
-app.use(cors(corsOptions));
+app.use(cors(corsOptions["origin"]));
 app.use(express.json());
 app.use(morgan("dev"));
 
