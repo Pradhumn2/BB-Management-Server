@@ -39,7 +39,18 @@ connectDB();
 const app = express(); //All functionality of express gets stored in app
 
 //middlewares
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(function (req, res, next) {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://bb-managment-client.vercel.app"
+  ); // Allow requests from any origin
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 app.use(express.json());
 app.use(morgan("dev"));
 
