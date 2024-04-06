@@ -11,7 +11,7 @@ const adminRoutes = require("./routes/adminRoutes");
 const path = require("path");
 //cors
 const allowedOrigins = [
-  "https://bb-management-server.vercel.app/",
+  "https://bb-managment-client-799xl20b1-pradhumn2s-projects.vercel.app",
   // Add more allowed origins as needed
 ];
 
