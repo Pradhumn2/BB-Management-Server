@@ -10,25 +10,6 @@ const analyticsRoutes = require("./routes/analyticsRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const path = require("path");
 //cors
-const allowedOrigins = [
-  "https://bb-managment-client-799xl20b1-pradhumn2s-projects.vercel.app/",
-  "https://bb-managment-client-799xl20b1-pradhumn2s-projects.vercel.app",
-  "https://bb-managment-client.vercel.app/",
-  "https://bb-managment-client.vercel.app",
-  // Add more allowed origins as needed
-];
-
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     console.log(origin);
-//     if (!origin || allowedOrigins.includes(origin)) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Not allowed by CORS"));
-//     }
-//   },
-// };
-
 //dot config
 dotenv.config();
 
@@ -56,29 +37,29 @@ const app = express(); //All functionality of express gets stored in app
 //   next();
 // });
 app.use(express.json());
-
-app.use(
-  cors({
-    origin: "https://bb-managment-client.vercel.app",
-    credentials: true,
-  })
-);
-app.use(function (req, res, next) {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://bb-managment-client.vercel.app"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With,content-type"
-  );
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  next();
-});
+app.use(cors());
+// app.use(
+//   cors({
+//     origin: "https://bb-managment-client.vercel.app",
+//     credentials: true,
+//   })
+// );
+// app.use(function (req, res, next) {
+//   res.setHeader(
+//     "Access-Control-Allow-Origin",
+//     "https://bb-managment-client.vercel.app"
+//   );
+//   res.setHeader(
+//     "Access-Control-Allow-Methods",
+//     "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+//   );
+//   res.setHeader(
+//     "Access-Control-Allow-Headers",
+//     "X-Requested-With,content-type"
+//   );
+//   res.setHeader("Access-Control-Allow-Credentials", true);
+//   next();
+// });
 
 app.use(morgan("dev"));
 
